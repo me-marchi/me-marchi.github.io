@@ -1,5 +1,3 @@
-
-
 export interface RegistryModel {
     id: string;
     firstName: string;

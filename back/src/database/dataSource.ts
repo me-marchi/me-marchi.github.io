@@ -1,6 +1,5 @@
 import { DataSource } from "typeorm"
 import { Registry } from '../entities/Registry'
-import { RegistryRepository  } from "../repository/registryRepository";
 
 const AppDataSource = new DataSource({
     type: "mysql",
@@ -15,18 +14,5 @@ const AppDataSource = new DataSource({
     migrationsTableName: "migrations",
     migrations: ["migrations/*.js"]
 });
-
-const registry = async() => {
-    await RegistryRepository.create()
-};
-registry()
-
-// AppDataSource.initialize()
-//     .then(() => {
-//         console.log("Data Source has been initialized!")
-//     })
-//     .catch((err) => {
-//         console.error("Error during Data Source initialization", err)
-//     })
 
 export { AppDataSource }

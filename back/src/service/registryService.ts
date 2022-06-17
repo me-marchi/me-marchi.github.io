@@ -1,15 +1,8 @@
-// import { RegistryModel } from '../models/RegistryModel';
+import { RegistryRepository } from '../repository/registryRepository';
 
-// type RegistryRequest = {
-//     firstName: string;
-//     lastName: string;
-//     weight: string;
-//     height: string;
-// };
-
-// export class CreateRegistryService {
-    
-//     static async create({ firstName, lastName, weight, height }: FormRequest): Promise<FormModel> {
-//         const repo = getRepository(Registry)
-//     }
-// }
+export class RegistryService {
+    static async create(registry) {
+        const createdRegistry = await RegistryRepository.create({...registry})
+        return createdRegistry
+    }
+}
