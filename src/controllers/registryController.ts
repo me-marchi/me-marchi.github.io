@@ -10,7 +10,17 @@ export class RegistryController {
 
             return res.status(200).send(createdRegistry)
         } catch (error) {
-            return res.status(error.status).send(error)
+            return res.status(error.status||500).send(error)
+        }
+    }
+
+    static async findAll(req: Request, res: Response) {
+        try {
+            const allRegistries = await RegistryService.findAll()
+            return res.status(200).send(allRegistries)
+        } catch(error) {
+            console.log(error)
+            return res.status(error.status||500).send(error)
         }
     }
 }

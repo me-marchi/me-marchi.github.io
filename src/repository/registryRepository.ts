@@ -1,8 +1,9 @@
 import { AppDataSource } from "../database/dataSource"
 import { Registry } from "../entities/Registry"
+import { RegistryModel } from "../models/RegistryModel";
 
 export class RegistryRepository {
-    static async create(body){
+    static async create(body: RegistryModel){
         // await AppDataSource.initialize().then(async () => {
         //     await AppDataSource.manager.save(body)
         
@@ -15,9 +16,7 @@ export class RegistryRepository {
     }
 
     static async findAll() {
-        console.log("Loading users from the database...")
-
-        const registries = await AppDataSource.manager.find(Registry)
-        console.log("Loaded users: ", registries)
+        const allRegistries = await AppDataSource.manager.find(Registry)
+        return allRegistries
     }
 }

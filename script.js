@@ -1,4 +1,14 @@
-function meuEscopo() {
+async function getContent() {
+    try {
+        const response = await fetch('http://localhost:5500/')
+        const result = await response.json()
+        console.log(result)
+    } catch(error) {
+        console.log(error, 'ERROU')
+    }
+}
+
+function executeScript() {
     const form = document.querySelector('.form')
     const resultado = document.querySelector('.resultado')
 
@@ -37,6 +47,8 @@ function meuEscopo() {
     form.addEventListener('submit', recebeEvento)
 }
 
-meuEscopo()
+getContent()
+
+executeScript()
 
 //  de modo a proteger o código de interferências externas, você deve envolver tudo que fizer em funções, pois assim as variáveis estarão declaradas localmente na função. Se elas fossem declaradas globalmente, seu valor poderia ser alterado (p.e. por alguma biblioteca instalada, etc), e gerar erros no código

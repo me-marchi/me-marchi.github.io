@@ -11,8 +11,8 @@ const AppDataSource = new DataSource({
     synchronize: true,
     logging: false,
     entities: [Registry],
-    migrationsTableName: "migrations",
-    migrations: ["migrations/*.js"]
+    // migrationsTableName: "migrations",
+    // migrations: ["migrations/*.js"]
 });
 
 export { AppDataSource }
