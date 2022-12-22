@@ -12,7 +12,11 @@ app.use(express.json())
 app.use(registryRouter)
 app.use(cors())
 
-app.listen(5500, () => console.log('Server running'))
+app.get('/', function(req, res) {
+    res.send('Olá mundo');
+});
+
+app.listen(3333, () => console.log('Server running'))
 
 export { app }
 
