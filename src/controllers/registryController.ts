@@ -10,6 +10,7 @@ export class RegistryController {
 
             return res.status(200).send(createdRegistry)
         } catch (error) {
+            console.log(error)
             return res.status(error.status||500).send(error)
         }
     }
